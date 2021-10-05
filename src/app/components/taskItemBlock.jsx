@@ -7,13 +7,15 @@ const TaskItemBlock = ({
   importance,
   deadline,
   belongToGoal,
+  color,
   onCloseTask,
 }) => {
   return (
-    <div key={id} className="card" style={{ width: "10rem" }}>
+    <div key={id} className={"card m-2 bg-"+ color} style={{ width: "150px", height:'120px' }}>
       <div className="card-body">
         <h5 className="card-title">{name}</h5>
-        <h6 className="card-subtitle mb-1 text-muted">{deadline}</h6>
+        <h6 className="card-subtitle mb-1 text-muted">imp {importance}</h6>
+        <h6 className="card-subtitle mb-1 text-muted">urg {deadline}</h6>
         <div className="form-check form-switch">
           <input
             onClick={() => onCloseTask(id)}
