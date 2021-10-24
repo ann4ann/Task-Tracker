@@ -3,24 +3,27 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <ul class="nav nav-pills nav-fill" style={{ height: "5vh" }}>
-      <li class="nav-item">
-        <Link class="nav-link" aria-current="page" to="/tasks">
+    <ul
+      className="nav nav-pills nav-fill align-items-center"
+      style={{ height: "6vh" }}
+    >
+      <li className="nav-item">
+        <Link className="nav-link" aria-current="page" to="/tasks">
           AllTasks
         </Link>
       </li>
-      <li class="nav-item">
-        <Link class="nav-link" to="/">
+      <li className="nav-item">
+        <Link className="nav-link fs-4 fw-bold" to="/">
           TODAY
         </Link>
       </li>
-      <li class="nav-item">
-        <Link class="nav-link" to="/goals">
+      <li className="nav-item">
+        <Link className="nav-link" to="/goals">
           Goal(s)
         </Link>
       </li>
-      <li class="nav-item">
-        <Link class="nav-link" to="/login">
+      <li className="nav-item">
+        <Link className="nav-link" to="/login">
           Login
         </Link>
       </li>

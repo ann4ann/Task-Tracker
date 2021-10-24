@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import api from "../api/index";
 import AddTaskBtn from "./addTaskBtn";
+import GoToToday from "./goToTodayBtn";
 import TaskBlock from "./tasksBlock";
 
 const TasksList = () => {
@@ -70,7 +70,7 @@ const TasksList = () => {
   };
 
   return (
-    <div className="d-flex bg-primary p-3 " style={{ height: "95vh" }}>
+    <div className="d-flex bg-primary p-2 " style={{ height: "94vh" }}>
       {/* Задачи по 4 категориям */}
       <div className="d-flex flex-column justify-content-between flex-grow-1 bg-dark">
         {/* СТРОКА 1 */}
@@ -116,7 +116,7 @@ const TasksList = () => {
             <AddTaskBtn alignBtn="start" />
             <TaskBlock
               tasksArray={notImpNotUrgTasks}
-              color="light.bg-gradient"
+              color="light"
               onCloseTask={handleCloseTask}
             ></TaskBlock>
           </div>
@@ -126,19 +126,17 @@ const TasksList = () => {
       {/* Колонка Выполнено */}
       <div
         className="d-flex flex-column justify-content-between p-2 bg-danger "
-        style={{ width: "180px" }}
+        style={{ width: "176px" }}
       >
         <TaskBlock
           tasksArray={closedTasks}
           title="Выполнено"
           direction="column"
-          color="secondary"
+          color="info"
           onCloseTask={handleCloseTask}
         ></TaskBlock>
         {/* Кнопка TODAY */}
-        <Link to="/today" className="btn btn-warning btn-lg" role="button">
-          TODAY
-        </Link>
+        <GoToToday />
       </div>
     </div>
   );

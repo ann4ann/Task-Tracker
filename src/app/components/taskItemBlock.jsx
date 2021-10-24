@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const TaskItemBlock = ({
   id,
@@ -6,12 +7,16 @@ const TaskItemBlock = ({
   status,
   importance,
   deadline,
-  belongToGoal,
+  // belongToGoal,
   color,
   onCloseTask,
 }) => {
   return (
-    <div key={id} className={"card m-2 bg-"+ color} style={{ width: "150px", height:'120px' }}>
+    <div
+      key={id}
+      className={"card m-1 bg-" + color}
+      style={{ width: "150px", height: "120px" }}
+    >
       <div className="card-body">
         <h5 className="card-title">{name}</h5>
         <h6 className="card-subtitle mb-1 text-muted">imp {importance}</h6>
@@ -31,6 +36,17 @@ const TaskItemBlock = ({
       </div>
     </div>
   );
+};
+
+TaskItemBlock.propTypes = {
+  id: PropTypes.string,
+  name: PropTypes.string,
+  status: PropTypes.string,
+  importance: PropTypes.string,
+  deadline: PropTypes.string,
+  // belongToGoal: PropTypes.string,
+  color: PropTypes.string,
+  onCloseTask: PropTypes.string,
 };
 
 export default TaskItemBlock;

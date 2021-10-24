@@ -16,8 +16,8 @@ const tasks = [
     ownerId: "lddfsk",
     name: "Todo 1.1",
     status: false,
-    importance: 1,
-    deadline: 4,
+    importance: 2,
+    deadline: 3,
     duration: 5,
     timeInWork: 0,
     belongsToGoal: 1,
@@ -28,8 +28,8 @@ const tasks = [
     ownerId: "vbcvg",
     name: "Todo 2",
     status: false,
-    importance: 4,
-    deadline: 1,
+    importance: 3,
+    deadline: 2,
     duration: 30,
     timeInWork: 0,
     belongsToGoal: 1,
@@ -65,7 +65,7 @@ const tasks = [
     name: "Todo 10",
     status: true,
     importance: 4,
-    deadline: 2,
+    deadline: 1,
     duration: 160,
     timeInWork: 0,
     belongsToGoal: 1,
@@ -74,12 +74,12 @@ const tasks = [
 ];
 
 const fetchAll = () =>
-    new Promise((resolve) => {
-        window.setTimeout(function () {
-            resolve(tasks);
-        }, 2000);
-    });
+  new Promise((resolve) => {
+    window.setTimeout(function () {
+      resolve(tasks);
+    }, 2000);
+  });
 
 export default {
-  fetchAll
+  fetchAll,
 };
