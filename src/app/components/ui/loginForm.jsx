@@ -1,12 +1,31 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import TextField from "../common/form/textField";
+import API from "../../api";
+import { useHistory } from "react-router";
 
 const LoginForm = () => {
   const [data, setData] = useState({ login: "", password: "" });
+  const [currentUserId, setCurrentUserId] = useState(undefined);
+  const history = useHistory();
+
   const handleChange = ({ target }) => {
     setData((prevstate) => ({ ...prevstate, [target.name]: target.value }));
-    console.log(data);
+  };
+
+  let notValidUser = false;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    API.users.getByLogin(data.login, data.password).then((user) => {
+      if (user) {
+        notValidUser = false;
+        setCurrentUserId(user._id);
+        history.push("/");
+        localStorage.setItem("currentUserId", currentUserId);
+      } else {
+        notValidUser = true;
+      }
+    });
+    // if (!currentUserId) return;
   };
   return (
     <div>
@@ -23,14 +42,13 @@ const LoginForm = () => {
           value={data.password}
           onChange={handleChange}
         />
-        <Link
+        <button
           className="btn btn-primary btn-lg w-100 mx-1"
-          role="button"
-          //   onClick={handleSubmit}
-          to="/"
+          onClick={handleSubmit}
         >
           Войти
-        </Link>
+        </button>
+        {notValidUser && <div>Такого пользователя не существует</div>}
       </form>
     </div>
   );

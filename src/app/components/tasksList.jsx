@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import api from "../api/index";
+import API from "../api/index";
 import AddTaskBtn from "./addTaskBtn";
 import GoToToday from "./goToTodayBtn";
 import TaskBlock from "./tasksBlock";
@@ -17,7 +17,7 @@ const TasksList = () => {
   // );
 
   useEffect(() => {
-    api.tasks.fetchAll().then((data) => {
+    API.tasks.fetchAll().then((data) => {
       setAllTasks(data);
     });
   }, []);
