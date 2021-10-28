@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import TextField from "../components/common/form/textField";
 
 const AddTask = () => {
   const [data, setData] = useState({
@@ -20,71 +21,84 @@ const AddTask = () => {
   };
 
   return (
-    <>
-      <h1>AddTask</h1>
-      <div>
-        <label htmlFor="name">Название задачи</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={data.name}
-          onChange={handleChange}
-        ></input>
+    <div className="container mt-5 shadow w-50">
+      <div className="p-5">
+        <h1 className="mb-3">Добавить задачу</h1>
+        <form action="">
+          <TextField
+            label="Название задачи"
+            name="name"
+            value={data.name}
+            onChange={handleChange}
+          />
+          <div className="mb-3">
+            <label className="form-label" htmlFor="importance">
+              Важность
+            </label>
+            <input
+              className="form-range"
+              type="range"
+              min="1"
+              max="4"
+              step="1"
+              id="importance"
+              name="importance"
+              value={data.importance || 1}
+              onChange={handleChange}
+            ></input>
+          </div>
+          <div className="mb-3">
+            <label className="form-label" htmlFor="deadline">
+              Срок до
+            </label>
+            <input
+              className="form-control"
+              // type="datetime-local"
+              type="date"
+              id="deadline"
+              name="deadline"
+              value={data.deadline}
+              onChange={handleChange}
+            ></input>
+          </div>
+          <div className="mb-3">
+            <select className="form-select" aria-label="Default select example">
+              <option selected>Выберите продолжительность</option>
+              <option value="1">5 минут</option>
+              <option value="1">30 минут</option>
+              <option value="2">1 час</option>
+              <option value="3">2 часа</option>
+            </select>
+          </div>
+          <div className="mb-3">
+            <label className="form-label" htmlFor="description">
+              Описание
+            </label>
+            <textarea
+              className="form-control"
+              rows="3"
+              type="text"
+              id="description"
+              name="description"
+              value={data.description}
+              onChange={handleChange}
+            ></textarea>
+          </div>
+          <button
+            className="btn btn-outline-primary w-100 mb-3"
+            type="button"
+          >
+            Отменить
+          </button>
+          <button
+            className="btn btn-primary w-100 mb-3"
+            type="submit"
+          >
+            Сохранить
+          </button>
+        </form>
       </div>
-      <div>
-        <label htmlFor="importance">Важность</label>
-        <input
-          type="number"
-          min="1"
-          max="4"
-          step="1"
-          id="importance"
-          name="importance"
-          value={data.importance || 1}
-          onChange={handleChange}
-        ></input>
-      </div>
-      <div>
-        <label htmlFor="deadline">Срок до</label>
-        <input
-          type="datetime-local"
-          id="deadline"
-          name="deadline"
-          value={data.deadline}
-          onChange={handleChange}
-        ></input>
-      </div>
-      <div>
-        <label htmlFor="duration">Длительность (часов)</label>
-        <input
-          type="text"
-          list="durationList"
-          id="duration"
-          name="duration"
-          value={data.duration}
-          onChange={handleChange}
-        ></input>
-        <datalist id="durationList">
-          <option value="5" />
-          <option value="30" />
-          <option value="60" />
-          <option value="120" />
-        </datalist>
-      </div>
-      <div>
-        <label htmlFor="description">Описание</label>
-        <textarea
-          type="text"
-          id="description"
-          name="description"
-          value={data.description}
-          onChange={handleChange}
-        ></textarea>
-      </div>
-      <button type="button">Отменить</button>
-      <button type="submit">Сохранить</button>
-    </>
+    </div>
   );
 };
 

@@ -38,6 +38,7 @@ const LoginForm = () => {
         />
         <TextField
           label="Пароль"
+          type="password"
           name="password"
           value={data.password}
           onChange={handleChange}

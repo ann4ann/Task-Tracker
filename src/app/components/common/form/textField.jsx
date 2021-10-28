@@ -3,10 +3,12 @@ import PropTypes from "prop-types";
 
 const TextField = ({ label, type, name, value, onChange }) => {
   return (
-    <div className="input-group mb-3">
-      <label htmlFor={name}>{label}</label>
+    <div className="mb-3">
+      <label className="form-label" htmlFor={name}>
+        {label}
+      </label>
       <input
-        className="w-100 mx-auto fs-5"
+        className="form-control"
         type={type}
         id={name}
         name={name}
