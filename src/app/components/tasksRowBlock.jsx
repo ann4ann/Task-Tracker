@@ -11,7 +11,7 @@ const TaskRowBlock = ({
 }) => {
   return (
     <>
-      <div className="list-group mt-4 w-100">
+      <div className="list-group pt-4 w-100">
         {title ? <h4>{title}:</h4> : null}
         {tasksArray &&
           tasksArray.map((task) => (

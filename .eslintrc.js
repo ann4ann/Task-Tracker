@@ -21,6 +21,10 @@ module.exports = {
         ignoredNodes: [
           // !!!!!!!!!! анализ узлов по выражению - https://astexplorer.net/
           "ConditionalExpression > CallExpression",
+          // "ConditionalExpression > ExpressionStatement", no
+          // "ConditionalExpression > ExpressionStatement > ObjectExpression", no
+          // "ConditionalExpression > ObjectExpression", no
+          // "CallExpression > ObjectExpression" no
         ],
       },
     ],

@@ -10,7 +10,7 @@ import AddTask from "./layouts/addTask";
 
 function App() {
   return (
-    <div>
+    <div className="d-flex flex-column bg-success  bg-opacity-25 vh-100 p-2">
       <NavBar />
       <Switch>
         <Route path="/login" component={Login} />

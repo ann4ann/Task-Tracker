@@ -6,7 +6,7 @@ const AddTaskBtn = ({ alignBtn = "end" }) => {
   return (
     <Link
       to="/addtask"
-      className={`btn m-1 btn-danger align-self-${alignBtn} fw-bold`}
+      className={`btn m-1 btn-outline-success align-self-${alignBtn} fw-bold`}
       role="button"
       style={{ height: "40px" }}
     >

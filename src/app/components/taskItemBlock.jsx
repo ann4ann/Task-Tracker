@@ -12,11 +12,7 @@ const TaskItemBlock = ({
   onCloseTask,
 }) => {
   return (
-    <div
-      key={id}
-      className={"card m-1 bg-" + color}
-      style={{ width: "150px", height: "120px" }}
-    >
+    <div key={id} className={"card me-auto mb-2 bg-opacity-75 bg-" + color}>
       <div className="card-body">
         <h5 className="card-title">{name}</h5>
         <h6 className="card-subtitle mb-1 text-muted">imp {importance}</h6>
@@ -41,12 +37,12 @@ const TaskItemBlock = ({
 TaskItemBlock.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
-  status: PropTypes.string,
-  importance: PropTypes.string,
-  deadline: PropTypes.string,
+  status: PropTypes.bool,
+  importance: PropTypes.number,
+  deadline: PropTypes.number,
   // belongToGoal: PropTypes.string,
   color: PropTypes.string,
-  onCloseTask: PropTypes.string,
+  onCloseTask: PropTypes.func,
 };
 
 export default TaskItemBlock;

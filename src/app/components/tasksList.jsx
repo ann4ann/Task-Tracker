@@ -70,16 +70,17 @@ const TasksList = () => {
   };
 
   return (
-    <div className="d-flex bg-primary p-2 " style={{ height: "94vh" }}>
+    <div
+      className="d-flex w-100 h-100 mh-100"
+    >
       {/* Задачи по 4 категориям */}
-      <div className="d-flex flex-column justify-content-between flex-grow-1 bg-dark">
+      <div className="d-flex flex-column justify-content-between flex-grow-1">
         {/* СТРОКА 1 */}
         <div
-          className="d-flex bg-dark "
-          style={{ width: "100%", height: "100%" }}
+          className="d-flex w-100 h-100"
         >
           {/* Важно и срочно */}
-          <div className="d-flex" style={{ width: "50%" }}>
+          <div className="d-flex overflow-auto w-50 shadow" >
             <TaskBlock
               tasksArray={impUrgTasks}
               color="danger"
@@ -88,7 +89,9 @@ const TasksList = () => {
             <AddTaskBtn />
           </div>
           {/* Важно и несрочно */}
-          <div className="d-flex bg-light" style={{ width: "50%" }}>
+          <div
+            className="d-flex overflow-auto w-50 shadow"
+          >
             <AddTaskBtn />
             <TaskBlock
               tasksArray={impNotUrgTasks}
@@ -99,11 +102,10 @@ const TasksList = () => {
         </div>
         {/* СТРОКА 2 */}
         <div
-          className="d-flex bg-light "
-          style={{ width: "100%", height: "100%" }}
+          className="d-flex w-100 h-100"
         >
           {/* Неважно и срочно */}
-          <div className="d-flex" style={{ width: "50%" }}>
+          <div className="d-flex overflow-auto w-50 shadow">
             <TaskBlock
               tasksArray={notImpUrgTasks}
               color="warning"
@@ -112,7 +114,9 @@ const TasksList = () => {
             <AddTaskBtn alignBtn="start" />
           </div>
           {/* Неважно и несрочно */}
-          <div className="d-flex bg-dark" style={{ width: "50%" }}>
+          <div
+            className="d-flex overflow-auto w-50 shadow"
+          >
             <AddTaskBtn alignBtn="start" />
             <TaskBlock
               tasksArray={notImpNotUrgTasks}
@@ -125,8 +129,7 @@ const TasksList = () => {
 
       {/* Колонка Выполнено */}
       <div
-        className="d-flex flex-column justify-content-between p-2 bg-danger "
-        style={{ width: "176px" }}
+        className="d-flex flex-column overflow-auto justify-content-between p-2 bg-secondary bg-opacity 50"
       >
         <TaskBlock
           tasksArray={closedTasks}

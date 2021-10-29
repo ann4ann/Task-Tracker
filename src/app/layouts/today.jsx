@@ -37,10 +37,9 @@ const Today = () => {
   };
 
   return (
-    <div className="d-flex vh-100">
-
+    <div className="d-flex w-100 h-100 mh-100">
       {/* Панель слева */}
-      <div className="bg-primary p-3">
+      <div className="overflow-auto mh-100 bg-primary bg-opacity-25 p-1">
         <h3>Задачи на сегодня:</h3>
         <TaskRowBlock
           title="Важное"
@@ -57,7 +56,7 @@ const Today = () => {
       </div>
 
       {/* Панель справа */}
-      <div className="w-100 p-3 bg-info">
+      <div className="w-100 p-3 bg-info  bg-opacity-25">
         <div className="bg-info pb-3">
           <div>Случайная мотивация: ..................................</div>
           <div>Ваша главная цель: ..................................</div>

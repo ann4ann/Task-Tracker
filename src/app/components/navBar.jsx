@@ -5,7 +5,6 @@ const NavBar = () => {
   return (
     <ul
       className="nav nav-pills nav-fill align-items-center"
-      style={{ height: "6vh" }}
     >
       <li className="nav-item">
         <Link className="nav-link" aria-current="page" to="/tasks">

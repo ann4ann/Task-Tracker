@@ -13,7 +13,7 @@ const TaskBlock = ({
     <>
       {title ? <h4>{title}:</h4> : null}
       <div
-        className={`d-flex flex-${direction} flex-wrap flex-fill m-1 bg-info bg-opacity-25`}
+        className={`d-flex flex-${direction} flex-wrap flex-fill align-items-start m-2 pt-3`}
       >
         {tasksArray &&
           tasksArray.map((task) => (
