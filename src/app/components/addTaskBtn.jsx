@@ -1,12 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import setPosition from "../utils/setPosition";
 
-const AddTaskBtn = ({ alignBtn = "end" }) => {
+const AddTaskBtn = ({ position = "bottom center" }) => {
   return (
     <Link
       to="/addtask"
-      className={`btn m-1 btn-outline-success align-self-${alignBtn} fw-bold`}
+      className={`btn m-1 btn-outline-dark fw-bold ${setPosition(
+        position
+      )}`}
       role="button"
       style={{ height: "40px" }}
     >
@@ -15,7 +18,7 @@ const AddTaskBtn = ({ alignBtn = "end" }) => {
   );
 };
 AddTaskBtn.propTypes = {
-  alignBtn: PropTypes.string,
+  position: PropTypes.string,
 };
 
 export default AddTaskBtn;

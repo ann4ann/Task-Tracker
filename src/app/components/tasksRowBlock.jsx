@@ -7,7 +7,7 @@ const TaskRowBlock = ({
   title = null,
   // direction = "row",
   color,
-  onCloseTask,
+  onOpenTask,
 }) => {
   return (
     <>
@@ -24,7 +24,7 @@ const TaskRowBlock = ({
               deadline={task.deadline}
               belongToGoal={task.belongToGoal}
               color={color}
-              onCloseTask={onCloseTask}
+              onOpenTask={onOpenTask}
             ></TaskItemRow>
           ))}
       </div>
@@ -37,7 +37,7 @@ TaskRowBlock.propTypes = {
   title: PropTypes.string,
   direction: PropTypes.string,
   color: PropTypes.string,
-  onCloseTask: PropTypes.func,
+  onOpenTask: PropTypes.func,
 };
 
 export default TaskRowBlock;

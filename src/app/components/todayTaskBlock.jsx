@@ -1,12 +1,13 @@
 import React from "react";
 import TodayTaskProgress from "./todayTaskProgress";
+import PropTypes from "prop-types";
 
-const TodayTaskBlock = () => {
+const TodayTaskBlock = ({ taskData }) => {
   return (
     <div className="bg-warning p-3">
-      <h1 className="text-center">Task name</h1>
+      <h1 className="text-center">{taskData.name}</h1>
       <div className="d-flex justify-content-between">
-        <TodayTaskProgress />
+        <TodayTaskProgress taskData={taskData} />
         <div className="align-self-center">
           <input
             type="checkbox"
@@ -24,6 +25,10 @@ const TodayTaskBlock = () => {
       </div>
     </div>
   );
+};
+
+TodayTaskBlock.propTypes = {
+  taskData: PropTypes.object,
 };
 
 export default TodayTaskBlock;

@@ -7,10 +7,15 @@ const Today = () => {
   const [allTasks, setAllTasks] = useState();
   const [impTasks, setImpTasks] = useState();
   const [notImpTasks, setNotImpTasks] = useState();
+  const [mainGoal, setMainGoal] = useState();
+  const [currentTask, setCurrentTask] = useState();
 
   useEffect(() => {
     API.tasks.fetchAll().then((data) => {
       setAllTasks(data);
+    });
+    API.goals.getMainGoal().then((goal) => {
+      setMainGoal(goal);
     });
   }, []);
 
@@ -26,14 +31,10 @@ const Today = () => {
     );
   }, [allTasks]);
 
-  const handleCloseTask = (taskId) => {
-    const newTasks = allTasks.map((task) => {
-      if (task._id === taskId) {
-        task.status = !task.status;
-      }
-      return task;
+  const handleOpenTask = (taskId) => {
+    API.tasks.fetchById(taskId).then((data) => {
+      setCurrentTask(data);
     });
-    setAllTasks(newTasks);
   };
 
   return (
@@ -45,13 +46,13 @@ const Today = () => {
           title="Важное"
           tasksArray={impTasks}
           color="danger"
-          onCloseTask={handleCloseTask}
+          onOpenTask={handleOpenTask}
         />
         <TaskRowBlock
           title="Неважное"
           tasksArray={notImpTasks}
           color="info"
-          onCloseTask={handleCloseTask}
+          onOpenTask={handleOpenTask}
         />
       </div>
 
@@ -59,9 +60,9 @@ const Today = () => {
       <div className="w-100 p-3 bg-info  bg-opacity-25">
         <div className="bg-info pb-3">
           <div>Случайная мотивация: ..................................</div>
-          <div>Ваша главная цель: ..................................</div>
+          <div>Ваша главная цель: {mainGoal ? mainGoal.name : ""}</div>
         </div>
-        <TodayTaskBlock />
+        {currentTask && <TodayTaskBlock taskData={currentTask} />}
         <button className="btn btn-lg btn-primary mb-5 me-3 position-absolute bottom-0 end-0">
           к следующей
         </button>

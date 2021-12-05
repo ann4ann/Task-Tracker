@@ -9,20 +9,14 @@ const TaskItemRow = ({
   // deadline,
   // belongToGoal,
   color,
-  // onCloseTask,
+  onOpenTask,
 }) => {
   return (
     <label key={id} className={"list-group-item mt-1 list-group-item-" + color}>
       <p className="text-center">{name}</p>
-      <input
-        type="checkbox"
-        className="btn-check"
-        id={name}
-        autoComplete="off"
-      />
-      <label className="btn btn-sm btn-outline-primary w-100" htmlFor={name}>
-        Приступить!
-      </label>
+      <button className="btn btn-primary w-100" onClick={() => onOpenTask(id)}>
+        Приступить
+      </button>
     </label>
   );
 };
@@ -35,7 +29,7 @@ TaskItemRow.propTypes = {
   deadline: PropTypes.number,
   // belongToGoal: PropTypes.string,
   color: PropTypes.string,
-  onCloseTask: PropTypes.func,
+  onOpenTask: PropTypes.func,
 };
 
 export default TaskItemRow;

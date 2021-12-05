@@ -70,93 +70,95 @@ const TasksList = () => {
   };
 
   return (
-    <div
-      className="d-flex w-100 h-100 mh-100"
-    >
-      {/* Задачи по 4 категориям */}
-      <div className="d-flex flex-column justify-content-between flex-grow-1">
-        {/* СТРОКА 1 */}
-        <div
-          className="d-flex w-100 h-100"
-        >
-          {/* Важно и срочно */}
-          <div className="d-flex overflow-auto w-50 shadow" >
-            <TaskBlock
-              tasksArray={impUrgTasks}
-              color="danger"
-              onCloseTask={handleCloseTask}
-            ></TaskBlock>
-            <AddTaskBtn />
-          </div>
-          {/* Важно и несрочно */}
-          <div
-            className="d-flex overflow-auto w-50 shadow"
-          >
-            <AddTaskBtn />
-            <TaskBlock
-              tasksArray={impNotUrgTasks}
-              color="success"
-              onCloseTask={handleCloseTask}
-            ></TaskBlock>
-          </div>
-        </div>
-        {/* СТРОКА 2 */}
-        <div
-          className="d-flex w-100 h-100"
-        >
-          {/* Неважно и срочно */}
-          <div className="d-flex overflow-auto w-50 shadow">
-            <TaskBlock
-              tasksArray={notImpUrgTasks}
-              color="warning"
-              onCloseTask={handleCloseTask}
-            ></TaskBlock>
-            <AddTaskBtn alignBtn="start" />
-          </div>
-          {/* Неважно и несрочно */}
-          <div
-            className="d-flex overflow-auto w-50 shadow"
-          >
-            <AddTaskBtn alignBtn="start" />
-            <TaskBlock
-              tasksArray={notImpNotUrgTasks}
-              color="light"
-              onCloseTask={handleCloseTask}
-            ></TaskBlock>
+    <>
+      <div className="h-100">
+        <div className="container-xl h-100">
+          <div className="row justify-content-center h-100">
+            {/* Задачи по 4 категориям */}
+            <div className="col-col-sm-9 col-md-10">
+              {/* СТРОКА 1 */}
+              <div className="row justify-content-center min-vh-50 h-50">
+                {/* Важно и срочно */}
+                <div className="col-sm border-end border-bottom border-danger">
+                  <div className="w-100 h-100 position-relative">
+                    <div className="pe-5">
+                      <div className="fs-4 fw-bold">Важно и срочно</div>
+                      <TaskBlock
+                        tasksArray={impUrgTasks}
+                        color="danger"
+                        onCloseTask={handleCloseTask}
+                      ></TaskBlock>
+                    </div>
+                    <AddTaskBtn position="bottom right" />
+                  </div>
+                </div>
+                {/* Важно и несрочно */}
+                <div className="col-sm border-bottom border-start border-success">
+                  <div className="w-100 h-100 position-relative">
+                    <div className="ps-5">
+                      <div className="fs-4 fw-bold">Важно и несрочно</div>
+                      <TaskBlock
+                        tasksArray={impNotUrgTasks}
+                        color="success"
+                        onCloseTask={handleCloseTask}
+                      ></TaskBlock>
+                    </div>
+                    <AddTaskBtn position="bottom left" />
+                  </div>
+                </div>
+              </div>
+              {/* СТРОКА 2 */}
+              <div className="row justify-content-center min-vh-50 h-50">
+                {/* Неважно и срочно */}
+                <div className="col-sm border-top border-end border-warning">
+                  <div className="w-100 h-100 position-relative">
+                    <div className="pe-5">
+                      <div className="fs-4 fw-bold">Неважно и срочно</div>
+                      <TaskBlock
+                        tasksArray={notImpUrgTasks}
+                        color="warning"
+                        onCloseTask={handleCloseTask}
+                      ></TaskBlock>
+                    </div>
+                    <AddTaskBtn position="top right" />
+                  </div>
+                </div>
+                {/* Неважно и несрочно */}
+                <div className="col-sm border-start border-top border-light">
+                  <div className="w-100 h-100 position-relative">
+                    <div className="ps-5">
+                      <div className="fs-4 fw-bold">Неважно и несрочно</div>
+                      <TaskBlock
+                        tasksArray={notImpNotUrgTasks}
+                        color="light"
+                        onCloseTask={handleCloseTask}
+                      ></TaskBlock>
+                    </div>
+                    <AddTaskBtn position="top left" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Колонка Выполнено */}
+            <div className="col bg-secondary bg-opacity-25 mh-100">
+              <div className="w-100 h-100 position-relative">
+                <div className="fs-4 fw-bold">Выполнено</div>
+                <TaskBlock
+                  tasksArray={closedTasks}
+                  title="Выполнено"
+                  // direction="column"
+                  color="transparent"
+                  onCloseTask={handleCloseTask}
+                ></TaskBlock>
+                {/* Кнопка TODAY */}
+                <GoToToday position="bottom center" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      {/* Колонка Выполнено */}
-      <div
-        className="d-flex flex-column overflow-auto justify-content-between p-2 bg-secondary bg-opacity 50"
-      >
-        <TaskBlock
-          tasksArray={closedTasks}
-          title="Выполнено"
-          direction="column"
-          color="info"
-          onCloseTask={handleCloseTask}
-        ></TaskBlock>
-        {/* Кнопка TODAY */}
-        <GoToToday />
-      </div>
-    </div>
+    </>
   );
-
-  // tasks.map((task) => {
-  //   return (
-  //     <TaskItemBlock
-  //       id={task._id}
-  //       name={task.name}
-  //       status={task.status}
-  //       importance={task.importance}
-  //       deadline={task.deadline}
-  //       belongToGoal={task.belongToGoal}
-  //       onCloseTask={handleCloseTask}
-  //     ></TaskItemBlock>
-  //   );
-  // });
 };
 
 export default TasksList;

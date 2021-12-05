@@ -80,6 +80,14 @@ const fetchAll = () =>
     }, 2000);
   });
 
+const fetchById = (id) =>
+  new Promise((resolve) => {
+    window.setTimeout(function () {
+      resolve(tasks.find((task) => task._id === id));
+    }, 1000);
+  });
+
 export default {
   fetchAll,
+  fetchById,
 };

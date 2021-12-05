@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router";
 // import TasksList from "./components/tasksList";
-import NavBar from "./components/navBar";
+import NavBar from "./components/ui/navBar";
 import Goals from "./layouts/goals";
 import Today from "./layouts/today";
 import Login from "./layouts/login";
